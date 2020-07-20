@@ -445,29 +445,6 @@
             }
           }
         }
-      },
-      {
-        "name": "ats_hbase",
-        "label": "ATSv2 HBase Application",
-        "description": "This alert is triggered if the ats hbase cannot be determined to be up and responding to requests.",
-        "interval": 5,
-        "scope": "ANY",
-        "enabled": true,
-        "source": {
-          "type": "SCRIPT",
-          "path": "HDP/3.0/services/YARN/package/alerts/alert_ats_hbase.py",
-          "parameters": [
-            {
-              "name": "check.command.timeout",
-              "display_name": "Command Timeout",
-              "value": 120.0,
-              "type": "NUMERIC",
-              "description": "The maximum time before check command will be killed by timeout",
-              "units": "seconds",
-              "threshold": "CRITICAL"
-            }
-          ]
-        }
       }
     ]
   }

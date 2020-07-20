@@ -163,8 +163,6 @@
       </service>
 
       <service name="YARN">
-        <component>APP_TIMELINE_SERVER</component>
-        <component>TIMELINE_READER</component>
         <component>RESOURCEMANAGER</component>
         <component>YARN_REGISTRY_DNS</component>
       </service>

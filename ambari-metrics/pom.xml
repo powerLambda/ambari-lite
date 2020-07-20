@@ -29,7 +29,7 @@
     <module>ambari-metrics-kafka-sink</module>
     <module>ambari-metrics-storm-sink</module>
     <module>ambari-metrics-storm-sink-legacy</module>
-    <module>ambari-metrics-timelineservice</module>
+   <!-- <module>ambari-metrics-timelineservice</module>-->
     <module>ambari-metrics-host-monitoring</module>
     <module>ambari-metrics-grafana</module>
     <module>ambari-metrics-host-aggregator</module>

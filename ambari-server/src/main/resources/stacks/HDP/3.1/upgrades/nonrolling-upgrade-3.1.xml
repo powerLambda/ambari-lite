@@ -112,8 +112,6 @@
       <service name="YARN">
         <component>NODEMANAGER</component>
         <component>RESOURCEMANAGER</component>
-        <component>APP_TIMELINE_SERVER</component>
-        <component>TIMELINE_READER</component>
         <component>YARN_REGISTRY_DNS</component>
       </service>
 
