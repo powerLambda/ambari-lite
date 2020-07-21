@@ -433,7 +433,7 @@
   <!-- These configs were inherited from HDP 2.1 -->
   <property>
     <name>yarn.timeline-service.enabled</name>
-    <value>true</value>
+    <value>false</value>
     <description>Indicate to clients whether timeline service is enabled or not.
       If enabled, clients will put entities and events to the timeline server.
     </description>
