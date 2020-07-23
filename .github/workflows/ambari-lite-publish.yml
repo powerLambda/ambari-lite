@@ -1,19 +1,19 @@
 # This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
 # For more information see: https://github.com/actions/setup-java#apache-maven-with-a-settings-path
 
-name: Maven Package
+name: ambari-lite publish
 
 on:
   workflow_dispatch:
       inputs:
           MAVEN_OPTS:
             description: 'MAVEN_OPTS' 
+env:
+  MAVEN_OPTS: -Dmaven.artifact.threads=30 -Dmaven.wagon.http.retryHandler.count=3
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
@@ -33,3 +33,8 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B ${{ github.event.inputs.MAVEN_OPTS }} clean package rpm:rpm -DskipTests -Drat.skip -Dpython.ver="python >= 2.6" --file pom.xml  
+
+    - name: Publish to GitHub Packages Apache Maven
+      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml -Drat.skip
+      env:
+        GITHUB_TOKEN: ${{ github.token }}

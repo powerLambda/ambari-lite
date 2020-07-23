@@ -708,5 +708,12 @@ instead of a SNAPSHOT. -->
       </properties>
     </profile>
   </profiles>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>Ambari-lite Maven Packages</name>
+            <url>https://maven.pkg.github.com/powerLambda/ambari-lite</url>
+        </repository>
+    </distributionManagement>
   <!-- End of profiles for running unit tests. -->
 </project>
