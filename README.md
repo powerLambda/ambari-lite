@@ -3,8 +3,8 @@
 
 # Project Backound
 ambari-lite is forked from tags/release-2.7.4, the project aim is to:  
-1,maintain core features to support classic hadoop cluster deployment and management;
-2,automate repo build and function test to guarantee quality assurance of this fork release; 
+1,maintain core features to support classic hadoop cluster deployment and management;  
+2,automate repo build and function test to guarantee quality assurance of this fork release;  
 
 ## Features Prune and Improvement  
 1, Remove ambari-metrics module([AMBARI-24695] Remove ambari-metrics from ambari repository. #2388);   
@@ -21,8 +21,8 @@ Building Ambari
 Use -U flag to force maven update.  
 
 
-# How to integrate apache distributed components like spark/flink?  
-Apache Spark  
+#How to integrate apache distributed components?   
+Apache Spark   
 
 
 
