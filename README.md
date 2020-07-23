@@ -1,3 +1,5 @@
+![ambari-lite pre-commit build](https://github.com/powerLambda/ambari-lite/workflows/ambari-lite%20pre-commit%20build/badge.svg?branch=master)
+
 
 # Project Backound
 ambari-lite is forked from tags/release-2.7.4, the project aim is to:  
