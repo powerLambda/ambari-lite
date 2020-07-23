@@ -11,7 +11,7 @@ on:
           MAVEN_OPTS:
             description: 'MAVEN_OPTS' 
 env:
-  MAVEN_OPTS: -Dmaven.artifact.threads=30 -Dmaven.wagon.http.retryHandler.count=3
+  DEFAULT_MAVEN_OPTS: -Dmaven.artifact.threads=30 -Dmaven.wagon.http.retryHandler.count=3
 
 jobs:
   build:
@@ -33,10 +33,28 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
 
-    - name: Build with Maven
-      run: mvn -B ${{ github.event.inputs.MAVEN_OPTS }} clean package rpm:rpm -DskipTests -Drat.skip -Dpython.ver="python >= 2.6" --file pom.xml  
-
-    - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml -Drat.skip
+    - name: Build RPM(All Views)
+      run: mvn -B ${{ env.DEFAULT_MAVEN_OPTS }} ${{ github.event.inputs.MAVEN_OPTS }} clean install package rpm:rpm -DskipTests -Drat.skip -Dpython.ver="python >= 2.6" --file pom.xml 
+       
+    - name: Create Ambari-lite Server Release
+      id: create_release
+      uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ github.token }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+      
+    - name: Upload Ambari-lite Server RPM
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./ambari-server/target/rpm/ambari-server/RPMS/x86_64/ambari-server-2.7.4.0-0.x86_64.rpm
+        asset_name: ambari-server-2.7.4.0-0.x86_64.rpm
+        asset_content_type: application/zip
+

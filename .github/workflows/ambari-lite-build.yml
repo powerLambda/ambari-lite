@@ -9,17 +9,19 @@ on:
         - master
       paths-ignore:
         - '**.md'
+        - '.github/**'
   pull_request:
       branches:
         - master
       paths-ignore:
         - '**.md'
+        - '.github/**'
   workflow_dispatch:
       inputs:
           MAVEN_OPTS:
             description: 'MAVEN_OPTS' 
 env:
-  MAVEN_OPTS: -Dmaven.artifact.threads=30 -Dmaven.wagon.http.retryHandler.count=3
+  DEFAULT_MAVEN_OPTS: -Dmaven.artifact.threads=30 -Dmaven.wagon.http.retryHandler.count=3
 
 
 jobs:
@@ -43,4 +45,4 @@ jobs:
           ${{ runner.os }}-maven-
 
     - name: Build with Maven
-      run: mvn -B ${{ github.event.inputs.MAVEN_OPTS }} clean package rpm:rpm -DskipTests -Drat.skip -Dpython.ver="python >= 2.6" --file pom.xml
+      run: mvn -B ${{ env.DEFAULT_MAVEN_OPTS }} ${{ github.event.inputs.MAVEN_OPTS }} clean package rpm:rpm -DskipTests -Drat.skip -Dpython.ver="python >= 2.6" --file pom.xml
