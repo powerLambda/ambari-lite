@@ -4,6 +4,8 @@
 name: ambari-lite publish
 
 on:
+  schedule:
+    - cron: '0 7 * * 1'
   workflow_dispatch:
       inputs:
           MAVEN_OPTS:

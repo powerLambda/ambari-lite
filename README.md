@@ -4,12 +4,13 @@
 # Project Backound
 ambari-lite is forked from tags/release-2.7.4, the project aim is to:  
 1,maintain core features to support classic hadoop cluster deployment and management;  
-2,automate repo build and function test to guarantee quality assurance of this fork release;  
+2,automate repo build and function test to guarantee release quality;  
 
 ## Features Prune and Improvement  
 1, Remove ambari-metrics module([AMBARI-24695] Remove ambari-metrics from ambari repository. #2388);   
-2, Remove ambari-ambari-infra and ambari-logsearch module([AMBARI-24693]. Remove ambari-infra and ambari-logsearch from ambari repository. #2387)   
-3, Remove timeline components in HDP stack as it is not widely supported by hadoop community;   
+2, Remove ambari-ambari-infra and ambari-logsearch module([AMBARI-24693]. Remove ambari-infra and ambari-logsearch from ambari repository. #2387);  
+3, Add 3.0/3.1 HDP stack definition from official release ambari-2.7.4.0-centos7.tar.gz;  
+4, Remove timeline components in HDP stack as it is not widely supported by hadoop community;   
 
 
 # How to build
@@ -21,7 +22,7 @@ Building Ambari
 Use -U flag to force maven update.  
 
 
-#How to integrate apache distributed components?   
+# How to integrate apache distributed components?   
 Apache Spark   
 
 

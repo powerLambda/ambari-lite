@@ -94,6 +94,8 @@
       <id>github</id>
       <name>Ambari-lite Maven Packages</name>
       <url>https://maven.pkg.github.com/powerLambda/ambari-lite</url>
+      <releases><enabled>true</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
     </repository>
   </distributionManagement>
 
