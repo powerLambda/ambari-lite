@@ -42,7 +42,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
+        tag_name: ambari-lite-2.7.4.0-0
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
