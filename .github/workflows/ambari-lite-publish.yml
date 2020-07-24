@@ -10,6 +10,8 @@ on:
       inputs:
           MAVEN_OPTS:
             description: 'MAVEN_OPTS' 
+          TAG:
+            description: 'TAG'
 env:
   DEFAULT_MAVEN_OPTS: -Dmaven.artifact.threads=30 -Dmaven.wagon.http.retryHandler.count=3
 
@@ -42,8 +44,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ambari-lite-2.7.4.0-0-${{ env.GITHUB_SHA }}
-        release_name: ambari-lite-2.7.4.0-0-${{ env.GITHUB_SHA }}
+        tag_name: ambari-lite-2.7.4.0-0-${{ github.event.inputs.TAG }}
+        release_name: ambari-lite-2.7.4.0-0-${{ github.event.inputs.TAG }}
         draft: false
         prerelease: false
       
