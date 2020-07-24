@@ -42,7 +42,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        target_commitish: master
         release_name: ambari-lite-2.7.4.0-0-${{ env.GITHUB_SHA }}
         draft: false
         prerelease: false
