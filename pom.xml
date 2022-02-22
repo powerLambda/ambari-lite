@@ -453,7 +453,7 @@
         <module>ambari-metrics</module>
         <module>ambari-server</module>
         <module>ambari-funtest</module>
-        <module>ambari-agent</module>
+<!--        <module>ambari-agent</module>-->
         <module>ambari-logsearch</module>
         <module>ambari-infra</module>
       </modules>
